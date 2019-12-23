@@ -288,6 +288,41 @@ def most_points_scored
   end
 end
 
+def most_steals
+  # Start with first player steals, save player stats to result
+  # iterate through players, update result if scored more
+ 
+  game_stats = game_hash
+  most_home_steals = game_stats[:home][:players][0]
+  most_away_steals = game_stats[:away][:players][0]
+ 
+  i = 0 
+  while i < game_stats[:home][:players].length do
+    if game_stats[:home][:players][i][:steals] > most_home_points[:steals]
+      most_home_steals = game_stats[:home][:players][i]
+      i += 1 
+    else
+      i += 1 
+    end
+  end
+  
+  i = 0 
+  while i < game_stats[:away][:players].length do
+    if game_stats[:away][:players][i][:steals] > most_away_points[:steals]
+      most_away_steals = game_stats[:away][:players][i]
+      i += 1 
+    else
+      i += 1 
+    end
+  end
+  
+  if most_home_points[:steals] > most_away_points[:steals]
+    return most_home_steals[:player_name]
+  else
+    return most_away_steals[:player_name]
+  end
+end
+
 def winning_team
   # Reduce game_hash[:home][:players] array by summing game_hash[:home][:players][i][:points]
   # Do same for away team and compare
@@ -349,6 +384,10 @@ def player_with_longest_name
 end
 
 def long_name_steals_a_ton?
-  
+  if longest_name == most_steals
+    return true 
+  else
+    return false
+  end
 end
 
