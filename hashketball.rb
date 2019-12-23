@@ -298,7 +298,7 @@ def most_steals
  
   i = 0 
   while i < game_stats[:home][:players].length do
-    if game_stats[:home][:players][i][:steals] > most_home_points[:steals]
+    if game_stats[:home][:players][i][:steals] > most_home_steals[:steals]
       most_home_steals = game_stats[:home][:players][i]
       i += 1 
     else
@@ -308,7 +308,7 @@ def most_steals
   
   i = 0 
   while i < game_stats[:away][:players].length do
-    if game_stats[:away][:players][i][:steals] > most_away_points[:steals]
+    if game_stats[:away][:players][i][:steals] > most_away_steals[:steals]
       most_away_steals = game_stats[:away][:players][i]
       i += 1 
     else
