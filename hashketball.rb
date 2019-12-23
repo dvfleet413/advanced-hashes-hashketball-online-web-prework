@@ -316,7 +316,7 @@ def most_steals
     end
   end
   
-  if most_home_points[:steals] > most_away_points[:steals]
+  if most_home_steals[:steals] > most_away_steals[:steals]
     return most_home_steals[:player_name]
   else
     return most_away_steals[:player_name]
